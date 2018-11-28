@@ -36,7 +36,10 @@ class DialogInput extends React.Component{
           this.state = { inputModal: '' };
       	}}>
         <View style={[styles.container, {...modalStyleProps}]}  >
-          <TouchableOpacity style={styles.container} activeOpacity={1} onPress={() => { this.props.closeDialog(); this.setState({ openning: true })}} >
+          <TouchableOpacity
+            style={styles.innerContainer}
+            onPress={() => { this.props.closeDialog(); this.setState({ openning: true })}}
+          >
             <View style={[styles.modal_container, {...dialogStyleProps}]} >
               <View style={styles.modal_body} >
                 <Text style={styles.title_modal}>{title}</Text>
@@ -81,16 +84,22 @@ class DialogInput extends React.Component{
   }
 }
 const styles = StyleSheet.create({
-  container:{
+  baseContainer: {
     flex:1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  container:{
+    ...baseContainer,
     ...Platform.select({
       android:{
-        backgroundColor: '#eee'
+        backgroundColor: 'rgba(0,0,0,0.64)'
       }
     }),
+  },
+  innerContainer: {
+    ...baseContainer,
   },
   modal_container:{
     marginLeft: 30,
