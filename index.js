@@ -36,7 +36,7 @@ class DialogInput extends React.Component{
           this.state = { inputModal: '' };
       	}}>
         <View style={[styles.container, {...modalStyleProps}]}  >
-          <TouchableOpacity style={styles.container} activeOpacity={1} onPress={() => { this.props.closeDialog(); this.setState({ openning: true })}} >
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.closeDialog(); this.setState({ openning: true })}} >
             <View style={[styles.modal_container, {...dialogStyleProps}]} >
               <View style={styles.modal_body} >
                 <Text style={styles.title_modal}>{title}</Text>
